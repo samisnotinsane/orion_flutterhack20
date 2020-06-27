@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:flutter/services.dart' show rootBundle;
 
 class Home extends StatelessWidget {
   @override
@@ -19,6 +20,15 @@ class MapSample extends StatefulWidget {
 
 class MapSampleState extends State<MapSample> {
   Completer<GoogleMapController> _controller = Completer();
+  String _mapStyle;
+
+  @override
+  initState() {
+    super.initState();
+    rootBundle.loadString('assets/map_style.json').then((string) {
+      _mapStyle = string;
+    });
+  }
 
   static final CameraPosition _kGooglePlex = CameraPosition(
     target: LatLng(37.42796133580664, -122.085749655962),
@@ -35,9 +45,12 @@ class MapSampleState extends State<MapSample> {
   Widget build(BuildContext context) {
     return new Scaffold(
       body: GoogleMap(
-        mapType: MapType.hybrid,
+        mapType: MapType.normal,
         initialCameraPosition: _kGooglePlex,
         onMapCreated: (GoogleMapController controller) {
+          GoogleMapController mapController;
+          mapController = controller;
+          mapController.setMapStyle(_mapStyle);
           _controller.complete(controller);
         },
       ),
