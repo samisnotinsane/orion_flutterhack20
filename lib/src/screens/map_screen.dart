@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
+import '../models/report.dart';
 import '../widgets/report_card.dart';
+
+import '../mock_data.dart';
 
 class MapScreen extends StatefulWidget {
   static const String id = '/map_screen';
@@ -11,14 +14,13 @@ class MapScreen extends StatefulWidget {
 }
 
 class _MapScreenState extends State<MapScreen> {
-  List<String> _items;
+  List<Report> _reports = reports; // from mockdata
   String _mapStyle;
   GoogleMapController _mapController;
 
   @override
   void initState() {
     super.initState();
-    _items = List<String>.generate(10, (i) => "Item $i");
     rootBundle.loadString('assets/map_style.json').then((string) {
       _mapStyle = string;
     });
@@ -49,9 +51,9 @@ class _MapScreenState extends State<MapScreen> {
             bottom: 10.0,
             child: SafeArea(
               child: ListView.builder(
-                  itemCount: _items.length,
+                  itemCount: _reports.length,
                   scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) => ReportCard(_items[index])),
+                  itemBuilder: (context, index) => ReportCard(_reports[index])),
             ),
           ),
         ],
