@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:orion_flutterhack20/src/screens/landing.dart';
+import 'package:orion_flutterhack20/src/screens/loading_screen.dart';
 
-import 'src/screens/map_screen.dart';
+import 'src/styles.dart';
 
 void main() => runApp(App());
 
@@ -11,13 +12,13 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: 'Tidy',
       theme: ThemeData(
-        primaryColor: Colors.amber.shade200,
+        primaryColor: Styles.primaryColor,
         accentColor: Colors.amberAccent,
       ),
       initialRoute: LandingScreen.id,
       routes: {
         LandingScreen.id: (context) => LandingScreen(),
-        MapScreen.id: (context) => MapScreen(),
+        LoadingScreen.id: (context) => LoadingScreen(),
       },
     );
   }
