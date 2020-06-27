@@ -44,6 +44,7 @@ class _MapScreenState extends State<MapScreen> {
       body: Stack(
         children: <Widget>[
           GoogleMap(
+            myLocationEnabled: true,
             onMapCreated: _onMapCreated,
             myLocationButtonEnabled: false,
             initialCameraPosition: CameraPosition(
