@@ -38,28 +38,12 @@ class _MapScreenState extends State<MapScreen> {
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   return Card(
-                    child: Text('Hei'),
+                    child: Text('Hei $index'),
                   );
                 },
               ),
             ),
           ),
-          // SafeArea(
-          //   child: ListView.builder(
-          //     scrollDirection: Axis.horizontal,
-          //     itemCount: _items.length,
-          //     itemBuilder: (context, index) {
-          //       return Container(
-          //         width: 300.0,
-          //         child: Card(
-          //           child: Center(
-          //             child: Text('Duh'),
-          //           ),
-          //         ),
-          //       );
-          //     },
-          //   ),
-          // ),
         ],
       ),
     );
