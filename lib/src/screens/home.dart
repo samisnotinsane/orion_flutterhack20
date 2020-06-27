@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:geolocator/geolocator.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -21,6 +22,7 @@ class MapSample extends StatefulWidget {
 class MapSampleState extends State<MapSample> {
   Completer<GoogleMapController> _controller = Completer();
   String _mapStyle;
+  Position _currentPosition;
 
   @override
   initState() {
@@ -55,15 +57,39 @@ class MapSampleState extends State<MapSample> {
         },
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: _goToTheLake,
-        label: Text('To the lake!'),
-        icon: Icon(Icons.directions_boat),
+        onPressed: _getCurrentLocation,
+        label: Text('My Location'),
+        icon: Icon(Icons.location_on),
       ),
     );
   }
 
   Future<void> _goToTheLake() async {
-    final GoogleMapController controller = await _controller.future;
-    controller.animateCamera(CameraUpdate.newCameraPosition(_kLake));
+    // final GoogleMapController controller = await _controller.future;
+    // controller.animateCamera(CameraUpdate.newCameraPosition(_kLake));
+    if (_currentPosition != null) {
+      Text(
+        '''LAT: ${_currentPosition.latitude}, 
+          LNG: ${_currentPosition.longitude}''',
+      );
+    }
+  }
+
+  _getCurrentLocation() {
+    final Geolocator geolocator = Geolocator()..forceAndroidLocationManager;
+
+    geolocator
+        .getCurrentPosition(desiredAccuracy: LocationAccuracy.best)
+        .then((Position position) {
+      setState(() {
+        _currentPosition = position;
+        print(
+          '''LAT: ${_currentPosition.latitude}, 
+          LNG: ${_currentPosition.longitude}''',
+        );
+      });
+    }).catchError((e) {
+      print(e);
+    });
   }
 }
