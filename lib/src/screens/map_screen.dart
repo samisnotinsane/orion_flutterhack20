@@ -3,6 +3,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import '../widgets/report_card.dart';
 import 'report_job.dart';
+import '../widgets/user_status.dart';
 
 class MapScreen extends StatefulWidget {
   static const String id = '/map_screen';
@@ -18,7 +19,7 @@ class _MapScreenState extends State<MapScreen> {
   @override
   void initState() {
     super.initState();
-    _items = List<String>.generate(10000, (i) => "Item $i");
+    _items = List<String>.generate(5, (i) => "Item $i");
     rootBundle.loadString('assets/map_style.json').then((string) {
       _mapStyle = string;
     });
@@ -42,30 +43,25 @@ class _MapScreenState extends State<MapScreen> {
               zoom: 12,
             ),
           ),
-          Container(
-            margin: EdgeInsets.fromLTRB(20, 50.0, 0, 0),
-            child: IconButton(
-                icon: Icon(
-                Icons.person,
-                size: 40,
-              ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => ReportJob()),
-                );
-              },
-            ),
-          ),
+          // Bottom cards.
           Positioned(
             left: 10.0,
             right: 10.0,
             top: MediaQuery.of(context).size.height * 0.75,
-            bottom: 0.0,
+            bottom: 10.0,
             child: SafeArea(
               child: ListView.builder(
+                  itemCount: _items.length,
                   scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) => ReportCard(index)),
+                  itemBuilder: (context, index) => ReportCard(_items[index])),
+            ),
+          ),
+          // Centre map to my location button.
+          SafeArea(
+            child: Container(
+              padding: EdgeInsets.only(right: 10.0),
+              alignment: Alignment.topRight,
+              child: UserStatus(),
             ),
           ),
         ],
