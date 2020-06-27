@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter/services.dart' show rootBundle;
@@ -20,9 +22,11 @@ class MapScreen extends StatefulWidget {
 }
 
 class _MapScreenState extends State<MapScreen> {
-  List<Report> _reports = reports; // from mockdata
+  List<Report> _reports = MockData().reports;
   String _mapStyle;
   GoogleMapController _mapController;
+  Set<Marker> _markers = HashSet<Marker>();
+  BitmapDescriptor _markerIcon;
 
   @override
   void initState() {
@@ -31,11 +35,33 @@ class _MapScreenState extends State<MapScreen> {
     rootBundle.loadString('assets/map_style.json').then((string) {
       _mapStyle = string;
     });
+    BitmapDescriptor.fromAssetImage(ImageConfiguration(devicePixelRatio: 2.5),
+            'assets/icons8-waste-96.png')
+        .then((BitmapDescriptor onValue) {
+      _markerIcon = onValue;
+    });
   }
 
   void _onMapCreated(GoogleMapController controller) {
     _mapController = controller;
     _mapController.setMapStyle(_mapStyle);
+
+    // Add markers to map
+    for (Report report in _reports) {
+      _markers.add(
+        Marker(
+          markerId: MarkerId(report.id),
+          position: LatLng(report.position.latitude, report.position.longitude),
+          infoWindow: InfoWindow(
+            title: report.title,
+            snippet: report.details,
+          ),
+          icon: _markerIcon,
+        ),
+      );
+    }
+
+    setState(() {});
   }
 
   @override
@@ -44,8 +70,10 @@ class _MapScreenState extends State<MapScreen> {
       body: Stack(
         children: <Widget>[
           GoogleMap(
+            myLocationEnabled: true,
             onMapCreated: _onMapCreated,
             myLocationButtonEnabled: false,
+            markers: _markers,
             initialCameraPosition: CameraPosition(
               target: LatLng(widget.devicePosition.latitude,
                   widget.devicePosition.longitude),
