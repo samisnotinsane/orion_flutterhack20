@@ -12,7 +12,7 @@ class LandingScreen extends StatelessWidget {
           onPressed: () {
             Navigator.pushNamed(context, MapScreen.id);
           },
-          child: Text('Jump in.'),
+          child: Text('Let\'s Tidy'),
           color: Theme.of(context).accentColor,
         ),
       ),
