@@ -21,9 +21,14 @@ class ReportCard extends StatelessWidget {
                   child: Image.asset('assets/trash.png'),
                 ),
                 title: Text(title),
-                subtitle: Text("adress hahaha"),
+                subtitle: Text("address hahaha"),
               ),
-              Text("data")
+              ListTile(
+                contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                title: Text("Details:"),
+                subtitle: Text(
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Printing and typesetting industry."),
+              )
             ])));
   }
 }
