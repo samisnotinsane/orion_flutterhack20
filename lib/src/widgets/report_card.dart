@@ -1,36 +1,33 @@
 import 'package:flutter/material.dart';
 
-class ReportCard extends StatelessWidget {
-  final String title;
+import '../models/report.dart';
 
-  ReportCard(this.title);
+class ReportCard extends StatelessWidget {
+  final Report report;
+
+  ReportCard(this.report);
 
   Widget build(context) {
     return Container(
-      width: 300,
-      child: Card(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-        child: Column(
-          children: [
-            ListTile(
-              contentPadding: EdgeInsets.symmetric(horizontal: 10),
-              leading: ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: Image.asset('assets/trash.png'),
+        width: 300,
+        child: Card(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+            child: Column(children: [
+              ListTile(
+                contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                leading: ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: Image.asset(report.imagePath),
+                ),
+                title: Text(report.title),
+                subtitle: Text("address hahaha"),
+                trailing: Icon(Icons.location_on),
               ),
-              title: Text(title),
-              subtitle: Text("address hahaha"),
-              trailing: Icon(Icons.location_on),
-            ),
-            ListTile(
-              contentPadding: EdgeInsets.symmetric(horizontal: 10),
-              title: Text("Details:"),
-              subtitle: Text(
-                  "Lorem Ipsum is simply dummy text of the printing and typesetting industry."),
-            )
-          ],
-        ),
-      ),
-    );
+              ListTile(
+                  contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                  title: Text("Details:"),
+                  subtitle: Text(report.details))
+            ])));
   }
 }
