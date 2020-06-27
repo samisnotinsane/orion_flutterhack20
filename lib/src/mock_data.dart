@@ -11,6 +11,7 @@ class MockData {
       details: "woa woah",
       imagePath: 'assets/hyde-park.jpg',
       position: LatLng(51.5078085, -0.1685757),
+      karma: 500,
     ),
     Report(
       id: "r-002",
@@ -18,6 +19,7 @@ class MockData {
       details: "wii woah",
       imagePath: 'assets/cool-park.png',
       position: LatLng(51.5312883, -0.1561957),
+      karma: 900,
     ),
     Report(
       id: "r-003",
@@ -25,6 +27,15 @@ class MockData {
       details: "waa woah",
       imagePath: 'assets/other-park.jpg',
       position: LatLng(51.5621613, -0.1672637),
+      karma: 350,
+    ),
+    Report(
+      id: "r-004",
+      title: "Danson Park",
+      details: "Rubbish left after BBQ",
+      imagePath: 'assets/cool-park.png',
+      position: LatLng(51.4553, 0.1199),
+      karma: 85,
     ),
   ];
 
