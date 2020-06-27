@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:flutter/services.dart' show rootBundle;
 
 import '../widgets/report_card.dart';
 
@@ -10,7 +11,23 @@ class MapScreen extends StatefulWidget {
 }
 
 class _MapScreenState extends State<MapScreen> {
-  final items = List<String>.generate(10, (i) => "Item $i");
+  List<String> _items;
+  String _mapStyle;
+  GoogleMapController _mapController;
+
+  @override
+  void initState() {
+    super.initState();
+    _items = List<String>.generate(10000, (i) => "Item $i");
+    rootBundle.loadString('assets/map_style.json').then((string) {
+      _mapStyle = string;
+    });
+  }
+
+  void _onMapCreated(GoogleMapController controller) {
+    _mapController = controller;
+    _mapController.setMapStyle(_mapStyle);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +35,7 @@ class _MapScreenState extends State<MapScreen> {
       body: Stack(
         children: <Widget>[
           GoogleMap(
+            onMapCreated: _onMapCreated,
             myLocationButtonEnabled: false,
             initialCameraPosition: CameraPosition(
               target: LatLng(37.77843, -122.41942),
