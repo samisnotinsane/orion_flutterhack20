@@ -27,8 +27,6 @@ class _MapScreenState extends State<MapScreen> {
   @override
   void initState() {
     super.initState();
-    // generate bottom cards.
-    _items = List<String>.generate(5, (i) => "Item $i");
     // load map theme.
     rootBundle.loadString('assets/map_style.json').then((string) {
       _mapStyle = string;
