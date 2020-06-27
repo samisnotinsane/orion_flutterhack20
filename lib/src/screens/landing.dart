@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flare_flutter/flare_actor.dart';
 
-import 'package:orion_flutterhack20/src/screens/loading_screen.dart';
-import 'package:orion_flutterhack20/src/styles.dart';
+import 'loading_screen.dart';
 import 'map_screen.dart';
 import '../styles.dart';
 
@@ -22,9 +21,12 @@ class _LandingScreenState extends State<LandingScreen> {
         onTap: () {
           Navigator.pushNamed(context, LoadingScreen.id);
         },
-        child: FlareActor(
-          'assets/ui.flr',
-          animation: 'show',
+        child: SizedBox(
+          height: MediaQuery.of(context).size.height,
+          child: FlareActor(
+            'assets/ui.flr',
+            animation: 'show',
+          ),
         ),
       ),
     );
