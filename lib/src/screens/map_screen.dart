@@ -36,7 +36,7 @@ class _MapScreenState extends State<MapScreen> {
       _mapStyle = string;
     });
     BitmapDescriptor.fromAssetImage(ImageConfiguration(devicePixelRatio: 2.5),
-            'assets/icons8-waste-96.png')
+            'assets/icons8-waste-sorting-48.png')
         .then((BitmapDescriptor onValue) {
       _markerIcon = onValue;
     });
