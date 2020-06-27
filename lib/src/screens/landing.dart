@@ -1,22 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:orion_flutterhack20/src/screens/loading_screen.dart';
-import 'package:orion_flutterhack20/src/styles.dart';
+import 'package:flare_flutter/flare_actor.dart';
 
+import 'loading_screen.dart';
+import 'map_screen.dart';
 import '../styles.dart';
 
-class LandingScreen extends StatelessWidget {
+class LandingScreen extends StatefulWidget {
   static const String id = '/landing_screen';
+
+  _LandingScreenState createState() => _LandingScreenState();
+}
+
+class _LandingScreenState extends State<LandingScreen> {
+  bool isOpen = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Styles.primaryColor,
-      body: Center(
-        child: FlatButton(
-          onPressed: () {
-            Navigator.pushNamed(context, LoadingScreen.id);
-          },
-          child: Text('Let\'s Tidy'),
-          color: Theme.of(context).accentColor,
+      body: GestureDetector(
+        onTap: () {
+          Navigator.pushNamed(context, LoadingScreen.id);
+        },
+        child: SizedBox(
+          height: MediaQuery.of(context).size.height,
+          child: FlareActor(
+            'assets/ui.flr',
+            animation: 'show',
+          ),
         ),
       ),
     );
