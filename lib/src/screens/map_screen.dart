@@ -9,6 +9,10 @@ import '../widgets/user_status.dart';
 class MapScreen extends StatefulWidget {
   static const String id = '/map_screen';
 
+  MapScreen({@required this.devicePosition});
+
+  final Position devicePosition;
+
   _MapScreenState createState() => _MapScreenState();
 }
 
@@ -16,7 +20,6 @@ class _MapScreenState extends State<MapScreen> {
   List<String> _items;
   String _mapStyle;
   GoogleMapController _mapController;
-  Position _currentPosition;
 
   @override
   void initState() {
@@ -26,21 +29,6 @@ class _MapScreenState extends State<MapScreen> {
     // load map theme.
     rootBundle.loadString('assets/map_style.json').then((string) {
       _mapStyle = string;
-    });
-    _getCurrentLocation();
-  }
-
-  void _getCurrentLocation() {
-    final Geolocator geolocator = Geolocator()..forceAndroidLocationManager;
-    geolocator
-        .getCurrentPosition(desiredAccuracy: LocationAccuracy.best)
-        .then((Position position) {
-      setState(() {
-        _currentPosition = position;
-      });
-      print('Device current position: $_currentPosition');
-    }).catchError((e) {
-      print(e);
     });
   }
 
@@ -58,8 +46,8 @@ class _MapScreenState extends State<MapScreen> {
             onMapCreated: _onMapCreated,
             myLocationButtonEnabled: false,
             initialCameraPosition: CameraPosition(
-              target:
-                  LatLng(_currentPosition.latitude, _currentPosition.longitude),
+              target: LatLng(widget.devicePosition.latitude,
+                  widget.devicePosition.longitude),
               zoom: 12,
             ),
           ),
