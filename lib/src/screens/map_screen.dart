@@ -26,6 +26,7 @@ class _MapScreenState extends State<MapScreen> {
   String _mapStyle;
   GoogleMapController _mapController;
   Set<Marker> _markers = HashSet<Marker>();
+  BitmapDescriptor _markerIcon;
 
   @override
   void initState() {
@@ -33,6 +34,11 @@ class _MapScreenState extends State<MapScreen> {
     // load map theme.
     rootBundle.loadString('assets/map_style.json').then((string) {
       _mapStyle = string;
+    });
+    BitmapDescriptor.fromAssetImage(ImageConfiguration(devicePixelRatio: 2.5),
+            'assets/icons8-waste-96.png')
+        .then((BitmapDescriptor onValue) {
+      _markerIcon = onValue;
     });
   }
 
@@ -50,6 +56,7 @@ class _MapScreenState extends State<MapScreen> {
             title: report.title,
             snippet: report.details,
           ),
+          icon: _markerIcon,
         ),
       );
     }
