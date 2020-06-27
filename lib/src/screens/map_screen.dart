@@ -22,6 +22,7 @@ class _MapScreenState extends State<MapScreen> {
   @override
   void initState() {
     super.initState();
+    // load map theme.
     rootBundle.loadString('assets/map_style.json').then((string) {
       _mapStyle = string;
     });
