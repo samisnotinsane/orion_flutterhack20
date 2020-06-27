@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:geolocator/geolocator.dart';
 
 import '../widgets/report_card.dart';
 import '../widgets/user_status.dart';
@@ -15,13 +16,31 @@ class _MapScreenState extends State<MapScreen> {
   List<String> _items;
   String _mapStyle;
   GoogleMapController _mapController;
+  Position _currentPosition;
 
   @override
   void initState() {
     super.initState();
+    // generate bottom cards.
     _items = List<String>.generate(5, (i) => "Item $i");
+    // load map theme.
     rootBundle.loadString('assets/map_style.json').then((string) {
       _mapStyle = string;
+    });
+    _getCurrentLocation();
+  }
+
+  void _getCurrentLocation() {
+    final Geolocator geolocator = Geolocator()..forceAndroidLocationManager;
+    geolocator
+        .getCurrentPosition(desiredAccuracy: LocationAccuracy.best)
+        .then((Position position) {
+      setState(() {
+        _currentPosition = position;
+      });
+      print('Device current position: $_currentPosition');
+    }).catchError((e) {
+      print(e);
     });
   }
 
@@ -39,7 +58,8 @@ class _MapScreenState extends State<MapScreen> {
             onMapCreated: _onMapCreated,
             myLocationButtonEnabled: false,
             initialCameraPosition: CameraPosition(
-              target: LatLng(37.77843, -122.41942),
+              target:
+                  LatLng(_currentPosition.latitude, _currentPosition.longitude),
               zoom: 12,
             ),
           ),
@@ -56,7 +76,7 @@ class _MapScreenState extends State<MapScreen> {
                   itemBuilder: (context, index) => ReportCard(_items[index])),
             ),
           ),
-          // Centre map to my location button.
+          // User info in top right of screen.
           SafeArea(
             child: Container(
               padding: EdgeInsets.only(right: 10.0),
