@@ -45,7 +45,7 @@ class _MapScreenState extends State<MapScreen> {
           Positioned(
             left: 10.0,
             right: 10.0,
-            // top: MediaQuery.of(context).size.height * 0.75,
+            top: MediaQuery.of(context).size.height * 0.75,
             bottom: 10.0,
             child: SafeArea(
               child: ListView.builder(

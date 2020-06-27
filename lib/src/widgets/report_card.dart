@@ -22,6 +22,7 @@ class ReportCard extends StatelessWidget {
                 ),
                 title: Text(title),
                 subtitle: Text("address hahaha"),
+                trailing: Icon(Icons.location_on),
               ),
               ListTile(
                 contentPadding: EdgeInsets.symmetric(horizontal: 10),
