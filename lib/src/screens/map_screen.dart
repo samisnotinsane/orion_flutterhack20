@@ -18,7 +18,7 @@ class _MapScreenState extends State<MapScreen> {
   @override
   void initState() {
     super.initState();
-    _items = List<String>.generate(10000, (i) => "Item $i");
+    _items = List<String>.generate(10, (i) => "Item $i");
     rootBundle.loadString('assets/map_style.json').then((string) {
       _mapStyle = string;
     });
@@ -46,11 +46,12 @@ class _MapScreenState extends State<MapScreen> {
             left: 10.0,
             right: 10.0,
             top: MediaQuery.of(context).size.height * 0.75,
-            bottom: 0.0,
+            bottom: 10.0,
             child: SafeArea(
               child: ListView.builder(
+                  itemCount: _items.length,
                   scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) => ReportCard(index)),
+                  itemBuilder: (context, index) => ReportCard(_items[index])),
             ),
           ),
         ],
