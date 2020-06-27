@@ -1,20 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
+import '../widgets/report_card.dart';
+
 class MapScreen extends StatefulWidget {
   static const String id = '/map_screen';
-  @override
+
   _MapScreenState createState() => _MapScreenState();
 }
 
 class _MapScreenState extends State<MapScreen> {
-  List<String> _items;
-
-  @override
-  void initState() {
-    super.initState();
-    _items = List<String>.generate(10000, (i) => "Item $i");
-  }
+  final items = List<String>.generate(10, (i) => "Item $i");
 
   @override
   Widget build(BuildContext context) {
@@ -35,13 +31,8 @@ class _MapScreenState extends State<MapScreen> {
             bottom: 0.0,
             child: SafeArea(
               child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  return Card(
-                    child: Text('Hei $index'),
-                  );
-                },
-              ),
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) => ReportCard(index)),
             ),
           ),
         ],
