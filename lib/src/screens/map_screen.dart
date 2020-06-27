@@ -48,11 +48,12 @@ class _MapScreenState extends State<MapScreen> {
             left: 10.0,
             right: 10.0,
             top: MediaQuery.of(context).size.height * 0.75,
-            bottom: 0.0,
+            bottom: 10.0,
             child: SafeArea(
               child: ListView.builder(
+                  itemCount: _items.length,
                   scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) => ReportCard(index)),
+                  itemBuilder: (context, index) => ReportCard(_items[index])),
             ),
           ),
           // Centre map to my location button.
