@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:orion_flutterhack20/src/screens/report_job.dart';
 
 import '../constants.dart';
 import '../styles.dart';
@@ -8,7 +9,10 @@ class UserStatus extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // TODO: Navigate to accounts screen.
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => ReportJob()),
+        );
         UnimplementedError('Account screen is not yet implemented');
       },
       child: Row(

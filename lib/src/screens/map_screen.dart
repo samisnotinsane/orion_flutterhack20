@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import '../widgets/report_card.dart';
-import 'report_job.dart';
 import '../widgets/user_status.dart';
 
 class MapScreen extends StatefulWidget {
