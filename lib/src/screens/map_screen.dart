@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter/services.dart' show rootBundle;
-
 import '../widgets/report_card.dart';
+import 'report_job.dart';
 
 class MapScreen extends StatefulWidget {
   static const String id = '/map_screen';
@@ -40,6 +40,21 @@ class _MapScreenState extends State<MapScreen> {
             initialCameraPosition: CameraPosition(
               target: LatLng(37.77843, -122.41942),
               zoom: 12,
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.fromLTRB(20, 50.0, 0, 0),
+            child: IconButton(
+                icon: Icon(
+                Icons.person,
+                size: 40,
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ReportJob()),
+                );
+              },
             ),
           ),
           Positioned(
