@@ -20,9 +20,9 @@ class RetroButton extends StatelessWidget {
         style: Styles.retroButtonTitle,
       ),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(18.0),
+        borderRadius: BorderRadius.circular(5.0),
         side: BorderSide(
-          color: Styles.primaryColor,
+          color: Colors.grey[900],
           width: 2.0,
         ),
       ),
