@@ -56,5 +56,9 @@ class MockData {
   ];
 
   UnmodifiableListView<Report> get reports => UnmodifiableListView(_reports);
+
+  void addReportToTop(Report report) => _reports.insert(0, report);
   UnmodifiableListView<Partner> get partners => UnmodifiableListView(_partners);
 }
+
+MockData data = MockData();

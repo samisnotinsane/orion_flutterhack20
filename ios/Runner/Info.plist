@@ -2,12 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 	<dict>
+		<key>NSCameraUsageDescription</key>
+		<string>Tidy needs camera access to post photos of rubbish.</string>
+		<key>NSMicrophoneUsageDescription</key>
+		<string>Tidy does not actually use your mic. It is needed as part of the camera functionality.</string>
 		<key>NSLocationWhenInUseUsageDescription</key>
-		<string>This app needs access to location when open.</string>
+		<string>Tidy needs access to location when open.</string>
 		<key>NSLocationAlwaysUsageDescription</key>
-		<string>This app needs access to location when in the background.</string>
+		<string>Tidy needs access to location when in the background.</string>
 		<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-		<string>This app needs access to location when open and in the background.</string>
+		<string>Tidy needs access to location when open and in the background.</string>
 		<key>io.flutter.embedded_views_preview</key>
 		<string>YES</string>
 		<key>CFBundleDevelopmentRegion</key>

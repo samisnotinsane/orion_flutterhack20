@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:orion_flutterhack20/src/screens/add_screen.dart';
+import 'package:camera/camera.dart';
 
 import '../styles.dart';
 import './map_screen.dart';
@@ -8,8 +9,12 @@ import './redeem_screen.dart';
 
 class Home extends StatefulWidget {
   final Position devicePosition;
+  final CameraDescription rearCam;
 
-  Home({@required this.devicePosition});
+  Home({
+    @required this.devicePosition,
+    @required this.rearCam,
+  });
 
   @override
   _HomeState createState() => _HomeState();
@@ -23,9 +28,13 @@ class _HomeState extends State<Home> {
     super.initState();
     _tabs = [
       MapScreen(devicePosition: widget.devicePosition),
-      AddScreen(),
+      AddScreen(rearCam: widget.rearCam, saveReport: () => saveReport()),
       RedeemScreen()
     ];
+  }
+
+  void saveReport() {
+    _onItemTapped(0);
   }
 
   void _onItemTapped(int index) {

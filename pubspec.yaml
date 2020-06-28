@@ -33,9 +33,12 @@ dependencies:
   flutter_spinkit: ^4.1.2+1
   flare_dart: ^2.3.4
   flare_flutter: ^2.0.3
+  camera: ^0.5.8+2
+  path_provider: ^1.6.11
+  path: ^1.6.4
   percent_indicator: "^2.1.5"
   qr_flutter: ^3.2.0
-
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
