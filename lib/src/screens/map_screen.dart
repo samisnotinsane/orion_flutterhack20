@@ -5,11 +5,9 @@ import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:orion_flutterhack20/src/models/report.dart';
-import 'package:orion_flutterhack20/src/widgets/retro_button.dart';
-import '../styles.dart';
+
 import '../widgets/report_card.dart';
 import '../widgets/user_status.dart';
-
 import '../mock_data.dart';
 
 class MapScreen extends StatefulWidget {
@@ -67,65 +65,41 @@ class _MapScreenState extends State<MapScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: <Widget>[
-          GoogleMap(
-            myLocationEnabled: true,
-            onMapCreated: _onMapCreated,
-            myLocationButtonEnabled: false,
-            markers: _markers,
-            initialCameraPosition: CameraPosition(
-              target: LatLng(widget.devicePosition.latitude,
-                  widget.devicePosition.longitude),
-              zoom: 12,
-            ),
+    return Stack(
+      children: <Widget>[
+        GoogleMap(
+          myLocationEnabled: true,
+          onMapCreated: _onMapCreated,
+          myLocationButtonEnabled: false,
+          markers: _markers,
+          initialCameraPosition: CameraPosition(
+            target: LatLng(widget.devicePosition.latitude,
+                widget.devicePosition.longitude),
+            zoom: 12,
           ),
-          // Bottom cards.
-          Positioned(
-            left: 10.0,
-            right: 10.0,
-            top: MediaQuery.of(context).size.height * 0.50,
-            bottom: 10.0,
-            child: SafeArea(
-              child: ListView.builder(
-                  itemCount: _reports.length,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) => ReportCard(_reports[index])),
-            ),
+        ),
+        // Bottom cards.
+        Positioned(
+          left: 10.0,
+          right: 10.0,
+          top: MediaQuery.of(context).size.height * 0.50,
+          bottom: 10.0,
+          child: SafeArea(
+            child: ListView.builder(
+                itemCount: _reports.length,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) => ReportCard(_reports[index])),
           ),
-          // User info in top right of screen.
-          SafeArea(
-            child: Container(
-              padding: EdgeInsets.only(right: 10.0),
-              alignment: Alignment.topRight,
-              child: UserStatus(),
-            ),
+        ),
+        // User info in top right of screen.
+        SafeArea(
+          child: Container(
+            padding: EdgeInsets.only(right: 10.0),
+            alignment: Alignment.topRight,
+            child: UserStatus(),
           ),
-        ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 0,
-        type: BottomNavigationBarType.fixed,
-        showUnselectedLabels: false,
-        showSelectedLabels: false,
-        selectedItemColor: Styles.primaryColor,
-        backgroundColor: Styles.primaryColorAlt,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            title: Text('Home'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.add),
-            title: Text('Add'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.card_giftcard),
-            title: Text('Redeem'),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

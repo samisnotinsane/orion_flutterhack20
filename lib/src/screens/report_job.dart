@@ -51,22 +51,35 @@ class ReportJob extends StatelessWidget {
             Container(
               margin: EdgeInsets.fromLTRB(30, 10, 30, 10),
               child: TextField(
-                decoration:
-                    InputDecoration(hintText: 'Deatils of the clean-up'),
+                decoration: InputDecoration(
+                  hintText: 'Deatils of the clean-up',
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey[400])
+                  ),
+                ),
               ),
             ),
             spacing(),
             heading('Equipment Required?'),
+            SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 RaisedButton(
-                  onPressed: null,
+                  onPressed: () {},
                   child: Text('Yes'),
+                  color: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
                 ),
                 RaisedButton(
-                  onPressed: null,
+                  onPressed: () {},
                   child: Text('No'),
+                  color: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
                 ),
                 //TODO add a text box when yes is chosen
               ],
