@@ -1,7 +1,9 @@
 import 'dart:collection';
 
-import 'models/report.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+
+import 'models/report.dart';
+import 'models/partner.dart';
 
 class MockData {
   List<Report> _reports = [
@@ -43,5 +45,12 @@ class MockData {
     ),
   ];
 
+  List<Partner> _partners = [
+    Partner(id: "p-001", name: "McDonald's", details: "FREE NUGGIES"),
+    Partner(id: "p-002", name: "KFC", details: "FREE WINGS"),
+    Partner(id: "p-003", name: "Pizza Hut", details: "FREE SLICE")
+  ];
+
   UnmodifiableListView<Report> get reports => UnmodifiableListView(_reports);
+  UnmodifiableListView<Partner> get partners => UnmodifiableListView(_partners);
 }

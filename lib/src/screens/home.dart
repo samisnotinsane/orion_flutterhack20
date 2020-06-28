@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 
 import './map_screen.dart';
+import './redeem_screen.dart';
 
 class Home extends StatefulWidget {
   final Position devicePosition;
@@ -21,7 +22,7 @@ class _HomeState extends State<Home> {
     _tabs = [
       MapScreen(devicePosition: widget.devicePosition),
       Text("hey"),
-      Text("woah")
+      RedeemScreen()
     ];
   }
 
