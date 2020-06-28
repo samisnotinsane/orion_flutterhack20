@@ -1,26 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:orion_flutterhack20/src/mock_data.dart';
 import 'package:orion_flutterhack20/src/models/users.dart';
 import 'package:orion_flutterhack20/src/styles.dart';
+import 'package:orion_flutterhack20/src/widgets/profile-image.dart';
 
 class Account extends StatelessWidget {
   final Users user;
-//List<Users> users= MockData().users;
   Account({this.user});
 
   @override
   Widget build(BuildContext context) {
-    // for (Users user in users) {
-    //   users.add(
-    //     Users(
-    //       username: user.username,
-    //       imageURL: user.imageURL,
-    //       memberSince: user.memberSince,
-    //       userStatement: user.userStatement,
-    //     ),
-    //   );
-    // }
-
     return Scaffold(
       backgroundColor: Styles.primaryColorAlt,
       body: Center(
@@ -42,20 +32,38 @@ class Account extends StatelessWidget {
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     image: DecorationImage(
-                        image: NetworkImage(
-                            user.imageURL),
-                        fit: BoxFit.fill),
+                        image: NetworkImage(user.imageURL), fit: BoxFit.fill),
                   ),
                 ),
                 spacing(),
                 heading('User Statement'),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(20,20,20,0),
+                  padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
                   child: info(user.userStatement),
                 ),
                 spacing(),
-
-                
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    ProfileImage(
+                      userImage: MockData().user[0],
+                      userNumber: 0,
+                    ),
+                    ProfileImage(
+                      userImage: MockData().user[1],
+                      userNumber: 1,
+                    ),
+                    ProfileImage(
+                      userImage: MockData().user[2],
+                      userNumber: 2,
+                    ),
+                    ProfileImage(
+                      userImage: MockData().user[3],
+                      userNumber: 3,
+                    ),
+                    
+                  ],
+                )
               ],
             ),
           ],
@@ -110,8 +118,10 @@ Column spacing() {
 
 Widget info(info) {
   return Center(
-    child: Text(info,
-    textAlign: TextAlign.center,),
+    child: Text(
+      info,
+      textAlign: TextAlign.center,
+    ),
   );
 }
 

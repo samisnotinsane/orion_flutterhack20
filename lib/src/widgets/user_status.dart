@@ -8,7 +8,6 @@ import '../constants.dart';
 import '../styles.dart';
 
 class UserStatus extends StatelessWidget {
-  //List <Users> user = MockData().user;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
