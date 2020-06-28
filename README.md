@@ -21,7 +21,7 @@
 </p>
 
 ## Screenshots
-![Landing screen](screenshots/Simulator-Screen-Shot-Landing.png?raw=true "Landing screen")
+![Landing screen](screenshots/Simulator-Screen-Shot-Landing.png?v=4&s=200 "Landing screen")
 ![Home](screenshots/Simulator-Screen-Shot-Home.png?raw=true "Home")
 ![Report mess](screenshots/Simulator-Screen-Shot-Add-Mess.png?raw=true "Report mess")
 ![Redeem](screenshots/Simulator-Screen-Shot-Redeem.png?raw=true "Redeem")
