@@ -16,59 +16,59 @@ class Account extends StatelessWidget {
       body: Center(
         child: ListView(
           children: <Widget>[
-            Column(
-              children: <Widget>[
-                BackButton(onPressed: () {
-                  Navigator.pop(context);
-                }),
-                userName(user.username),
-                SizedBox(height: 10),
-                info('Member since:'),
-                info(user.memberSince),
-                SizedBox(height: 20),
-                Container(
-                  width: 200,
-                  height: 200,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    image: DecorationImage(
-                        image: NetworkImage(user.imageURL), fit: BoxFit.fill),
-                  ),
+            BackButton(onPressed: () {
+              Navigator.pop(context);
+            }),
+            userName(user.username),
+            SizedBox(height: 10),
+            info('Member since:'),
+            info(user.memberSince),
+            SizedBox(height: 20),
+            Center(
+              child: Container(
+                width: 200,
+                height: 200,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                      image: NetworkImage(user.imageURL), fit: BoxFit.fill),
                 ),
-                spacing(),
-                heading('User Statement'),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
-                  child: info(user.userStatement),
-                ),
-                spacing(),
-                heading('Friends'),
-                SizedBox(height:20),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    ProfileImage(
-                      userImage: MockData().user[0],
-                      userNumber: 0,
-                    ),
-                    ProfileImage(
-                      userImage: MockData().user[1],
-                      userNumber: 1,
-                    ),
-                    ProfileImage(
-                      userImage: MockData().user[2],
-                      userNumber: 2,
-                    ),
-                    ProfileImage(
-                      userImage: MockData().user[3],
-                      userNumber: 3,
-                    ),
-                    
-                  ],
-                ),
-              spacing(),
-              ],
+              ),
             ),
+            spacing(),
+            heading('User Statement'),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+              child: info(user.userStatement),
+            ),
+            spacing(),
+            heading('Friends'),
+            SizedBox(height:20),
+            Container(
+              height: 100,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: <Widget>[
+                  ProfileImage(
+                userImage: MockData().user[0],
+                userNumber: 0,
+              ),
+              ProfileImage(
+                userImage: MockData().user[1],
+                userNumber: 1,
+              ),
+              ProfileImage(
+                userImage: MockData().user[2],
+                userNumber: 2,
+              ),
+              ProfileImage(
+                userImage: MockData().user[3],
+                userNumber: 3,
+              ),
+                ],
+              ),
+            ),
+              spacing(),
           ],
         ),
       ),
