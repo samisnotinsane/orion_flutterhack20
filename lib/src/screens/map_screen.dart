@@ -6,6 +6,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:orion_flutterhack20/src/models/report.dart';
 import 'package:orion_flutterhack20/src/widgets/retro_button.dart';
+import '../styles.dart';
 import '../widgets/report_card.dart';
 import '../widgets/user_status.dart';
 
@@ -84,7 +85,7 @@ class _MapScreenState extends State<MapScreen> {
           Positioned(
             left: 10.0,
             right: 10.0,
-            top: MediaQuery.of(context).size.height * 0.60,
+            top: MediaQuery.of(context).size.height * 0.50,
             bottom: 10.0,
             child: SafeArea(
               child: ListView.builder(
@@ -101,22 +102,27 @@ class _MapScreenState extends State<MapScreen> {
               child: UserStatus(),
             ),
           ),
-          Positioned(
-            left: 10.0,
-            right: 10.0,
-            top: MediaQuery.of(context).size.height * 0.12,
-            bottom: MediaQuery.of(context).size.height * 0.83,
-            child: ListView.separated(
-              itemCount: 10,
-              separatorBuilder: (context, index) => SizedBox(width: 5.0),
-              itemBuilder: (context, index) {
-                return RetroButton(
-                  onPressed: () {},
-                  title: '$index',
-                );
-              },
-              scrollDirection: Axis.horizontal,
-            ),
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: 0,
+        type: BottomNavigationBarType.fixed,
+        showUnselectedLabels: false,
+        showSelectedLabels: false,
+        selectedItemColor: Styles.primaryColor,
+        backgroundColor: Styles.primaryColorAlt,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            title: Text('Home'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.add),
+            title: Text('Add'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.card_giftcard),
+            title: Text('Redeem'),
           ),
         ],
       ),
