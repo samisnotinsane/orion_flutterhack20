@@ -22,7 +22,8 @@ class _LandingScreenState extends State<LandingScreen> {
           Navigator.pushNamed(context, LoadingScreen.id);
         },
         child: SizedBox(
-          height: MediaQuery.of(context).size.height,
+          height: MediaQuery.of(context).size.height * 1.5,
+          width: MediaQuery.of(context).size.width,
           child: FlareActor(
             'assets/ui.flr',
             animation: 'show',
