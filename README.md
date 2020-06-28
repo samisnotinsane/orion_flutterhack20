@@ -21,13 +21,17 @@
 </p>
 
 ## Screenshots
-<img src="https://github.com/samisnotinsane/orion_flutterhack20/raw/master/screenshots/Simulator-Screen-Shot-Landing.png" alt="Landing screen" width=640 height=920>
+<img src="https://github.com/samisnotinsane/orion_flutterhack20/raw/master/screenshots/Simulator-Screen-Shot-Landing.png" alt="Landing screen" width=250 height=500>
 
-<img src="https://github.com/samisnotinsane/orion_flutterhack20/raw/master/screenshots/Simulator-Screen-Shot-Home.png" alt="Report mess" width=200 height=500>
+<img src="https://github.com/samisnotinsane/orion_flutterhack20/raw/master/screenshots/Simulator-Screen-Shot-Home.png" alt="Home" width=250 height=500>
 
-![Report mess](screenshots/Simulator-Screen-Shot-Add-Mess.png?raw=true "Report mess")
-![Redeem](screenshots/Simulator-Screen-Shot-Redeem.png?raw=true "Redeem")
-![Profile](screenshots/Simulator-Screen-Shot-Add-Mess.png?raw=true "Profile")
+<img src="https://github.com/samisnotinsane/orion_flutterhack20/raw/master/screenshots/Simulator-Screen-Shot-Add-Mess.png" alt="Report mess" width=250 height=500>
+
+<img src="https://github.com/samisnotinsane/orion_flutterhack20/raw/master/screenshots/Simulator-Screen-Shot-Redeem.png" alt="Redeem" width=250 height=500>
+
+<img src="https://github.com/samisnotinsane/orion_flutterhack20/raw/master/screenshots/Simulator-Screen-Shot-Add-Mess.png" alt="Profile" width=250 height=500>
+
+![Profile](?raw=true "")
 
 ## Table of contents
 
