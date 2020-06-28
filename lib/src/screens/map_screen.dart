@@ -5,7 +5,6 @@ import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:orion_flutterhack20/src/models/report.dart';
-import 'package:orion_flutterhack20/src/widgets/retro_button.dart';
 import '../styles.dart';
 import '../widgets/report_card.dart';
 import '../widgets/user_status.dart';
@@ -89,9 +88,10 @@ class _MapScreenState extends State<MapScreen> {
             bottom: 10.0,
             child: SafeArea(
               child: ListView.builder(
-                  itemCount: _reports.length,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) => ReportCard(_reports[index])),
+                itemCount: _reports.length,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) => ReportCard(_reports[index]),
+              ),
             ),
           ),
           // User info in top right of screen.
