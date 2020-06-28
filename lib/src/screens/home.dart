@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:orion_flutterhack20/src/screens/add_screen.dart';
 
+import '../styles.dart';
 import './map_screen.dart';
 
 class Home extends StatefulWidget {
@@ -20,7 +22,7 @@ class _HomeState extends State<Home> {
     super.initState();
     _tabs = [
       MapScreen(devicePosition: widget.devicePosition),
-      Text("hey"),
+      AddScreen(),
       Text("woah")
     ];
   }
@@ -38,23 +40,27 @@ class _HomeState extends State<Home> {
         child: _tabs[_selectedIndex],
       ),
       bottomNavigationBar: BottomNavigationBar(
+        onTap: _onItemTapped,
+        currentIndex: _selectedIndex,
+        type: BottomNavigationBarType.fixed,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        backgroundColor: Styles.primaryColorAlt,
+        selectedItemColor: Styles.primaryColorContrast,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             title: Text('Home'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            title: Text(''),
+            icon: Icon(Icons.add),
+            title: Text('Add'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
+            icon: Icon(Icons.card_giftcard),
             title: Text('Redeem'),
           ),
         ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
-        onTap: _onItemTapped,
       ),
     );
   }
