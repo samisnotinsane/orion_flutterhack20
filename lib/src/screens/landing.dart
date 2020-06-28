@@ -4,8 +4,6 @@ import 'package:orion_flutterhack20/src/widgets/retro_button.dart';
 
 import 'loading_screen.dart';
 
-import '../styles.dart';
-
 class LandingScreen extends StatefulWidget {
   static const String id = '/landing_screen';
 
