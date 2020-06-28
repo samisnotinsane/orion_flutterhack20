@@ -72,6 +72,7 @@ flutter:
         - asset: fonts/Poppins-Italic.ttf
           style: italic
         - asset: fonts/Poppins-Bold.ttf
+
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf

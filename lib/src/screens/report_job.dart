@@ -60,7 +60,6 @@ class ReportJob extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                
                 RaisedButton(
                   onPressed: null,
                   child: Text('Yes'),
