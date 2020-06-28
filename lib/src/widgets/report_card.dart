@@ -8,7 +8,6 @@ class ReportCard extends StatelessWidget {
   final Report report;
 
   ReportCard(this.report);
-
   Widget build(context) {
     return Card(
       color: Styles.primaryColorAlt,
@@ -16,14 +15,9 @@ class ReportCard extends StatelessWidget {
         children: <Widget>[
           Expanded(
             flex: 2,
-            child: ClipRect(
-              child: Align(
-                alignment: Alignment.center,
-                heightFactor: 1.0,
-                widthFactor: 0.75,
-                child: Image.asset(report.imagePath),
-              ),
-            ),
+            child: AspectRatio(
+              aspectRatio:3/2,
+              child: Image.asset(report.imagePath, fit: BoxFit.fill)),
           ),
           Expanded(
             child: Padding(
