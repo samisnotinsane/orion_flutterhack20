@@ -3,7 +3,6 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:geolocator/geolocator.dart';
 
 import '../styles.dart';
-import 'map_screen.dart';
 import 'home.dart';
 
 class LoadingScreen extends StatefulWidget {
