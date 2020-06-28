@@ -21,7 +21,7 @@
 </p>
 
 ## Screenshots
-![Landing screen](screenshots/Simulator-Screen-Shot-Landing.png?v=4&s=200 "Landing screen")
+<img src="https://github.com/samisnotinsane/orion_flutterhack20/raw/master/screenshots/Simulator-Screen-Shot-Landing.png" alt="Landing screen" width=200 height=300>
 ![Home](screenshots/Simulator-Screen-Shot-Home.png?raw=true "Home")
 ![Report mess](screenshots/Simulator-Screen-Shot-Add-Mess.png?raw=true "Report mess")
 ![Redeem](screenshots/Simulator-Screen-Shot-Redeem.png?raw=true "Redeem")
