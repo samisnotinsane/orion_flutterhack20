@@ -3,7 +3,10 @@ import 'dart:collection';
 import 'models/report.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
+import 'models/users.dart';
+
 class MockData {
+
   List<Report> _reports = [
     Report(
       id: "r-001",
@@ -42,6 +45,27 @@ class MockData {
       minsPassed: 15,
     ),
   ];
+
+   List <Users> _users = [
+      Users(
+        username: 'SamIsNotInsane',
+        memberSince: '27/06/2020',
+        imageURL:
+            'https://ca.slack-edge.com/T016V2J50RW-U015QEXDC3H-g0a0a6c10f71-512',
+        userStatement: 'i like cleaning',
+      ),
+      Users(
+        username: 'Cakeydoodoo',
+        memberSince: '28/06/2020',
+        imageURL:
+            'https://ca.slack-edge.com/T016V2J50RW-U0163RQSQ3F-0c7048510a8f-512',
+        userStatement: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,',
+      ),
+    ];
+
+    List<Users> get user => _users;
+  
+
 
   UnmodifiableListView<Report> get reports => UnmodifiableListView(_reports);
 }
