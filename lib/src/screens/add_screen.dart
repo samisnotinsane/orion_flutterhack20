@@ -1,13 +1,16 @@
+import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:orion_flutterhack20/src/models/report.dart';
 import 'package:orion_flutterhack20/src/styles.dart';
 import 'package:orion_flutterhack20/src/widgets/retro_button.dart';
 
 import 'camera_app.dart';
+import '../mock_data.dart';
 
 class AddScreen extends StatefulWidget {
   static const String id = '/add_screen';
@@ -165,8 +168,22 @@ class _AddScreenState extends State<AddScreen> {
                       height: 50.0,
                       child: RetroButton(
                         title: 'Report',
-                        onPressed: () {
+                        onPressed: () async {
                           // TODO: report submit.
+                          _newReport.title = _title;
+                          _newReport.details = 'Dynamic report';
+
+                          Position pos = await getLocationData();
+                          LatLng latLng = LatLng(pos.latitude, pos.longitude);
+                          print('Creating new report in position $latLng');
+
+                          _newReport.position = latLng;
+
+                          // every new report has karma: 50
+                          // Add to mockdata card pile
+                          data.addReportToTop(_newReport);
+                          setState(() {});
+                          Navigator.pop(context);
                         },
                       ),
                     ),
@@ -180,11 +197,16 @@ class _AddScreenState extends State<AddScreen> {
     );
   }
 
+  Future<Position> getLocationData() async {
+    final Geolocator geolocator = Geolocator()..forceAndroidLocationManager;
+    return geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.best);
+  }
+
   Widget _showCamImage() {
     if (_newReport.imagePath != null) {
-      return Image.asset(
-        _newReport.imagePath,
-        height: 100.0,
+      return Image.file(
+        File(_newReport.imagePath),
       );
     }
     return SizedBox(
