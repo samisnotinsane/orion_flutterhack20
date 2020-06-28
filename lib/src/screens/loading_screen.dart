@@ -11,7 +11,8 @@ class LoadingScreen extends StatefulWidget {
   _LoadingScreenState createState() => _LoadingScreenState();
 }
 
-class _LoadingScreenState extends State<LoadingScreen> {
+class _LoadingScreenState extends State<LoadingScreen>
+    with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
@@ -44,6 +45,11 @@ class _LoadingScreenState extends State<LoadingScreen> {
         child: SpinKitFoldingCube(
           color: Colors.white,
           size: 50.0,
+          controller: AnimationController(
+            vsync: this,
+            duration:
+                const Duration(seconds: 2), // add some delay to see animation
+          ),
         ),
       ),
     );

@@ -12,6 +12,7 @@ class MockData {
       imagePath: 'assets/hyde-park.jpg',
       position: LatLng(51.5078085, -0.1685757),
       karma: 500,
+      minsPassed: 21,
     ),
     Report(
       id: "r-002",
@@ -20,6 +21,7 @@ class MockData {
       imagePath: 'assets/cool-park.png',
       position: LatLng(51.5312883, -0.1561957),
       karma: 900,
+      minsPassed: 55,
     ),
     Report(
       id: "r-003",
@@ -28,6 +30,7 @@ class MockData {
       imagePath: 'assets/other-park.jpg',
       position: LatLng(51.5621613, -0.1672637),
       karma: 350,
+      minsPassed: 120,
     ),
     Report(
       id: "r-004",
@@ -36,6 +39,7 @@ class MockData {
       imagePath: 'assets/cool-park.png',
       position: LatLng(51.4553, 0.1199),
       karma: 85,
+      minsPassed: 15,
     ),
   ];
 

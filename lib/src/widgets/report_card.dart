@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:orion_flutterhack20/src/widgets/retro_button.dart';
 
 import '../models/report.dart';
 import '../styles.dart';
@@ -12,7 +13,6 @@ class ReportCard extends StatelessWidget {
     return Card(
       color: Styles.primaryColorAlt,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Expanded(
             flex: 2,
@@ -29,16 +29,15 @@ class ReportCard extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
-                mainAxisSize: MainAxisSize.max,
                 children: <Widget>[
                   Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
                         report.title,
                         style: Styles.reportCardTitle,
                       ),
+                      SizedBox(height: 8.0),
                       Row(
                         children: <Widget>[
                           Text(
@@ -49,18 +48,29 @@ class ReportCard extends StatelessWidget {
                           Text('karma'),
                         ],
                       ),
-                    ],
-                  ),
-                  Column(
-                    children: <Widget>[
-                      IconButton(
-                        icon: Icon(Icons.explore),
-                        onPressed: () {
-                          // TODO: Nav to details.
-                          print('Card onPressed not yet implemented');
-                        },
+                      Text(
+                        '${report.minsPassed} mins ago',
                       ),
                     ],
+                  ),
+                  SizedBox(
+                    width: 50.0,
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Row(
+                        children: <Widget>[],
+                      ),
+                    ],
+                  ),
+                  RetroButton(
+                    onPressed: () {
+                      // TODO: Nav to details.
+                      print('Card onPressed not yet implemented');
+                    },
+                    title: 'Tidy',
                   ),
                 ],
               ),

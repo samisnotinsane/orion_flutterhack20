@@ -18,4 +18,9 @@ abstract class Styles {
   static const TextStyle reportCardSynopsis = TextStyle(
     fontWeight: FontWeight.bold,
   );
+  static const TextStyle retroButtonTitle = TextStyle(
+    color: Color.fromRGBO(33, 33, 33, 1.0),
+    fontSize: 16.0,
+    fontWeight: FontWeight.bold,
+  );
 }
