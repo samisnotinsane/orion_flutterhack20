@@ -29,7 +29,7 @@
 
 <img src="https://github.com/samisnotinsane/orion_flutterhack20/raw/master/screenshots/Simulator-Screen-Shot-Redeem.png" alt="Redeem" width=250 height=500>
 
-<img src="https://github.com/samisnotinsane/orion_flutterhack20/raw/master/screenshots/Simulator-Screen-Shot-Add-Mess.png" alt="Profile" width=250 height=500>
+<img src="https://github.com/samisnotinsane/orion_flutterhack20/raw/master/screenshots/Simulator-Screen-Shot-Profile.png" alt="Profile" width=250 height=500>
 
 ![Profile](?raw=true "")
 
