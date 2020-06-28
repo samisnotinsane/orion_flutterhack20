@@ -20,8 +20,8 @@ class ReportCard extends StatelessWidget {
             child: AspectRatio(
               aspectRatio:3/2,
               child: report.imagePath.contains('assets')
-                      ? Image.asset(report.imagePath)
-                      : Image.file(File(report.imagePath)))
+                      ? Image.asset(report.imagePath, fit: BoxFit.fill,)
+                      : Image.file(File(report.imagePath, ), fit: BoxFit.fill,))
           ),
           Expanded(
             child: Padding(

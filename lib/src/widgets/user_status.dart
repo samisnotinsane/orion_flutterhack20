@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:orion_flutterhack20/src/mock_data.dart';
+import 'package:orion_flutterhack20/src/models/users.dart';
+import 'package:orion_flutterhack20/src/screens/account.dart';
 import 'package:orion_flutterhack20/src/screens/report_job.dart';
 
 import '../constants.dart';
@@ -9,7 +12,10 @@ class UserStatus extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Account(user: MockData().user[0])),
+        );
         UnimplementedError('Account screen is not yet implemented');
       },
       child: Row(
