@@ -1,14 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:orion_flutterhack20/src/mock_data.dart';
+import 'package:orion_flutterhack20/src/models/report.dart';
 import 'package:orion_flutterhack20/src/models/users.dart';
 import 'package:orion_flutterhack20/src/styles.dart';
 import 'package:orion_flutterhack20/src/widgets/profile-image.dart';
+import 'package:orion_flutterhack20/src/widgets/report_card.dart';
 
 class Account extends StatelessWidget {
   final Users user;
   Account({this.user});
+  List<Report> _reports = MockData().reports;
 
+  // Report report1 = Report(
+  //   id: "r-001",
+  //   title: "Hyde Park",
+  //   details: "woa woah",
+  //   imagePath: 'assets/hyde-park.jpg',
+  //   position: LatLng(51.5078085, -0.1685757),
+  //   karma: 500,
+  //   minsPassed: 21,
+  // );
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,9 +29,13 @@ class Account extends StatelessWidget {
       body: Center(
         child: ListView(
           children: <Widget>[
-            BackButton(onPressed: () {
-              Navigator.pop(context);
-            }),
+            Container(
+              padding: EdgeInsets.all(10),
+              alignment: Alignment.topLeft,
+              child: BackButton(onPressed: () {
+                Navigator.pop(context);
+              }),
+            ),
             userName(user.username),
             SizedBox(height: 10),
             info('Member since:'),
@@ -43,32 +60,42 @@ class Account extends StatelessWidget {
             ),
             spacing(),
             heading('Friends'),
-            SizedBox(height:20),
+            SizedBox(height: 20),
             Container(
               height: 100,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: <Widget>[
                   ProfileImage(
-                userImage: MockData().user[0],
-                userNumber: 0,
-              ),
-              ProfileImage(
-                userImage: MockData().user[1],
-                userNumber: 1,
-              ),
-              ProfileImage(
-                userImage: MockData().user[2],
-                userNumber: 2,
-              ),
-              ProfileImage(
-                userImage: MockData().user[3],
-                userNumber: 3,
-              ),
+                    userImage: MockData().user[0],
+                    userNumber: 0,
+                  ),
+                  ProfileImage(
+                    userImage: MockData().user[1],
+                    userNumber: 1,
+                  ),
+                  ProfileImage(
+                    userImage: MockData().user[2],
+                    userNumber: 2,
+                  ),
+                  ProfileImage(
+                    userImage: MockData().user[3],
+                    userNumber: 3,
+                  ),
                 ],
               ),
             ),
-              spacing(),
+            spacing(),
+            heading('Report History'),
+            SizedBox(height: 20),
+            Container(
+              height: 350,
+              child: ListView.builder(
+                itemCount: _reports.length,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) => ReportCard(_reports[index]),
+              ),
+            ),
           ],
         ),
       ),
