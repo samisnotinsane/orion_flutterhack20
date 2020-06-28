@@ -35,18 +35,21 @@ class PartnerListTile extends StatelessWidget {
         decoration: BoxDecoration(
             border: Border.all(), borderRadius: BorderRadius.circular(5)),
         child: ListTile(
-            leading: Icon(Icons.fastfood),
-            title: Text(partner.name),
-            subtitle: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(partner.details),
-                  Text("${partner.cost} karma")
-                ]),
-            isThreeLine: true,
-            trailing: partner.cost < karma
-                ? RetroButton(
-                    title: "CLAIM", onPressed: () => claimerino(context))
-                : null),
+          leading: Icon(Icons.fastfood),
+          title: Text(partner.name),
+          subtitle: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [Text(partner.details), Text("${partner.cost} karma"),],),
+          isThreeLine: true,
+          trailing: partner.cost < karma
+              ? RetroButton(
+                  title: "CLAIM",
+                  onPressed: () => claimerino(context),
+                )
+              : RetroButton(
+                  title: "-",
+                  onPressed: null,
+                ),
+        ),
       );
 }

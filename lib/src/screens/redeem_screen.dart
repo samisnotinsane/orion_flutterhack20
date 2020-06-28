@@ -13,18 +13,25 @@ class RedeemScreen extends StatelessWidget {
   Widget build(context) => Stack(children: [
         Container(color: Styles.primaryColorAlt),
         Positioned(
-            top: 70,
-            child: Container(
-                height: MediaQuery.of(context).size.height * 0.4 - 70,
-                width: MediaQuery.of(context).size.width,
-                child: Center(
-                    child: Column(children: [
-                  Text("Verified Cleaner", style: TextStyle(fontSize: 32)),
+          top: 70,
+          child: Container(
+            height: MediaQuery.of(context).size.height * 0.4 - 70,
+            width: MediaQuery.of(context).size.width,
+            child: Center(
+              child: Column(
+                children: [
+                  Text(
+                    "Verified Tidier",
+                    style: Styles.retroTitle,
+                  ),
                   Container(height: 20),
                   Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                     Icon(Icons.verified_user,
                         size: 50, color: Colors.brown[300]),
-                    Text("$currentKarma₭", style: TextStyle(fontSize: 32))
+                    Text(
+                      "$currentKarma₭",
+                      style: TextStyle(fontSize: 32),
+                    )
                   ]),
                   Container(height: 20),
                   Container(
@@ -33,18 +40,28 @@ class RedeemScreen extends StatelessWidget {
                         percent: 0.6,
                         lineHeight: 30,
                         linearStrokeCap: LinearStrokeCap.roundAll,
-                        progressColor: Colors.lime,
+                        progressColor: Styles.primaryColor,
                         center: Text("150 / 200"),
                       )),
                   Container(height: 10),
-                  Text("Next Badge: Super Cleaner")
-                ])))),
+                  Text(
+                    "Next Badge: Super Cleaner",
+                    style: Styles.retroSubTitle,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
         Positioned(
+            top: MediaQuery.of(context).size.height * 0.40,
             bottom: 0,
             child: Container(
               height: MediaQuery.of(context).size.height * 0.6,
               width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(color: Colors.white),
+              decoration: BoxDecoration(
+                color: Styles.primaryColorAlt,
+              ),
               child: ListView.builder(
                   padding: EdgeInsets.symmetric(horizontal: 10),
                   itemCount: _partners.length,
