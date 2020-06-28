@@ -13,9 +13,16 @@ void main() async {
 
   // Obtain a list of the available cameras on the device.
   final cameras = await availableCameras();
-
   // Get a specific camera from the list of available cameras.
-  final rearCamera = cameras.first;
+  var rearCamera;
+
+  if (cameras.length == 0) {
+    print("""WARNING! Your device does not have a camera. 
+        You\'re most likely using a simulator. 
+        Run again on a physical device to use camera features.""");
+  } else {
+    rearCamera = cameras.first;
+  }
 
   runApp(
     App(
