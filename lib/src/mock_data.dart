@@ -7,8 +7,15 @@ import 'models/report.dart';
 import 'models/partner.dart';
 
 class MockData {
-
   List<Report> _reports = [
+    Report(
+      id: "r-000",
+      title: "Bournemouth Beach",
+      imagePath: 'assets/beach',
+      position: LatLng(50.7138, 1.8745),
+      karma: 800,
+      minsPassed: 15,
+    ),
     Report(
       id: "r-001",
       title: "Hyde Park",
@@ -47,44 +54,42 @@ class MockData {
     ),
   ];
 
-   List <Users> _users = [
-      Users(
-        username: 'SamIsNotInsane',
-        memberSince: '27/06/2020',
-        imageURL:
-            'https://ca.slack-edge.com/T016V2J50RW-U015QEXDC3H-g0a0a6c10f71-512',
-        userStatement: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,',
-      ),
-      Users(
-        username: 'Cakeydoodoo',
-        memberSince: '28/06/2020',
-        imageURL:
-            'https://ca.slack-edge.com/T016V2J50RW-U0163RQSQ3F-0c7048510a8f-512',
-        userStatement: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,',
-      ),
-      Users(
-        username: 'Jen698',
-        memberSince: '28/06/2020',
-        imageURL:
-            'https://images.pexels.com/photos/3825161/pexels-photo-3825161.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
-        userStatement: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,',
-      ),
-       Users(
-        username: 'MarzBarz',
-        memberSince: '28/06/2020',
-        imageURL:
-            'https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-        userStatement: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,',
-      ),
+  List<Users> _users = [
+    Users(
+      username: 'SamIsNotInsane',
+      memberSince: '27/06/2020',
+      imageURL:
+          'https://ca.slack-edge.com/T016V2J50RW-U015QEXDC3H-g0a0a6c10f71-512',
+      userStatement:
+          'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,',
+    ),
+    Users(
+      username: 'Cakeydoodoo',
+      memberSince: '28/06/2020',
+      imageURL:
+          'https://ca.slack-edge.com/T016V2J50RW-U0163RQSQ3F-0c7048510a8f-512',
+      userStatement:
+          'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,',
+    ),
+    Users(
+      username: 'Jen698',
+      memberSince: '28/06/2020',
+      imageURL:
+          'https://images.pexels.com/photos/3825161/pexels-photo-3825161.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
+      userStatement:
+          'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,',
+    ),
+    Users(
+      username: 'MarzBarz',
+      memberSince: '28/06/2020',
+      imageURL:
+          'https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+      userStatement:
+          'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,',
+    ),
+  ];
 
-      
-
-      
-    ];
-
-
-    List<Users> get user => _users;
-  
+  List<Users> get user => _users;
 
   List<Partner> _partners = [
     Partner(id: "p-001", name: "McDonald's", details: "FREE NUGGIES", cost: 50),
