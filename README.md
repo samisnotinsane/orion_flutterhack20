@@ -20,6 +20,10 @@
   </p>
 </p>
 
+## Screenshots
+![Landing screen](/relative/path/to/img.jpg?raw=true "Optional Title")
+
+
 ## Table of contents
 
 - [Quick start](#quick-start)
