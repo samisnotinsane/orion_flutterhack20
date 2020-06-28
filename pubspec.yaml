@@ -3,7 +3,7 @@ description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -36,6 +36,8 @@ dependencies:
   camera: ^0.5.8+2
   path_provider: ^1.6.11
   path: ^1.6.4
+  percent_indicator: "^2.1.5"
+  qr_flutter: ^3.2.0
   
 dev_dependencies:
   flutter_test:
@@ -46,7 +48,6 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -75,6 +76,7 @@ flutter:
         - asset: fonts/Poppins-Italic.ttf
           style: italic
         - asset: fonts/Poppins-Bold.ttf
+
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf

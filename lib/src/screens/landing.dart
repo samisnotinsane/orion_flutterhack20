@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flare_flutter/flare_actor.dart';
+import 'package:orion_flutterhack20/src/widgets/retro_button.dart';
 
 import 'loading_screen.dart';
 
@@ -14,19 +15,30 @@ class _LandingScreenState extends State<LandingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    const buttonHeightFactor = 0.6;
+
     return Scaffold(
-      body: GestureDetector(
-        onTap: () {
-          Navigator.pushNamed(context, LoadingScreen.id);
-        },
-        child: SizedBox(
-          height: MediaQuery.of(context).size.height,
-          child: FlareActor(
-            'assets/ui.flr',
-            animation: 'show',
-          ),
-        ),
-      ),
+      body: Stack(children: <Widget>[
+        SizedBox(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            child: FlareActor('assets/ui.flr', animation: 'show')),
+        Align(
+            alignment: Alignment(0, buttonHeightFactor),
+            heightFactor: 300,
+            child: Opacity(
+              opacity: 0,
+              child: ButtonTheme(
+                height: MediaQuery.of(context).size.height * 0.1,
+                minWidth: MediaQuery.of(context).size.width * 0.5,
+                child: RaisedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, LoadingScreen.id);
+                  },
+                ),
+              ),
+            )),
+      ]),
     );
   }
 }

@@ -10,7 +10,6 @@ class ReportCard extends StatelessWidget {
   final Report report;
 
   ReportCard(this.report);
-
   Widget build(context) {
     return Card(
       color: Styles.primaryColorAlt,
@@ -18,15 +17,11 @@ class ReportCard extends StatelessWidget {
         children: <Widget>[
           Expanded(
             flex: 2,
-            child: ClipRect(
-              child: Align(
-                  alignment: Alignment.center,
-                  heightFactor: 1.0,
-                  widthFactor: 0.75,
-                  child: report.imagePath.contains('assets')
+            child: AspectRatio(
+              aspectRatio:3/2,
+              child: report.imagePath.contains('assets')
                       ? Image.asset(report.imagePath)
-                      : Image.file(File(report.imagePath))),
-            ),
+                      : Image.file(File(report.imagePath)))
           ),
           Expanded(
             child: Padding(

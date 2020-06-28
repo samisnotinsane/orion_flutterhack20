@@ -5,6 +5,7 @@ import 'package:camera/camera.dart';
 
 import '../styles.dart';
 import './map_screen.dart';
+import './redeem_screen.dart';
 
 class Home extends StatefulWidget {
   final Position devicePosition;
@@ -28,7 +29,7 @@ class _HomeState extends State<Home> {
     _tabs = [
       MapScreen(devicePosition: widget.devicePosition),
       AddScreen(rearCam: widget.rearCam, saveReport: () => saveReport()),
-      Text("woah")
+      RedeemScreen()
     ];
   }
 
