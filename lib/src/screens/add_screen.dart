@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:orion_flutterhack20/src/models/report.dart';
 import 'package:orion_flutterhack20/src/styles.dart';
 import 'package:orion_flutterhack20/src/widgets/retro_button.dart';
@@ -20,12 +21,17 @@ class AddScreen extends StatefulWidget {
 
 class _AddScreenState extends State<AddScreen> {
   Report _newReport;
+  String _title;
+  String _locationCategory;
 
   @override
   void initState() {
     super.initState();
     var rnd = new Random();
-    _newReport = Report(id: 'r-${rnd.nextInt(1000)}');
+    _newReport = Report(
+      id: 'r-${rnd.nextInt(1000)}',
+      karma: 50,
+    );
   }
 
   @override
@@ -67,9 +73,8 @@ class _AddScreenState extends State<AddScreen> {
                           style: Styles.retroSubTitle,
                         ),
                         GestureDetector(
-                          onTap: () {
-                            // TODO: Open camera.
-                            Navigator.push(
+                          onTap: () async {
+                            await Navigator.push(
                               context,
                               MaterialPageRoute(
                                 builder: (context) => CameraApp(
@@ -79,7 +84,7 @@ class _AddScreenState extends State<AddScreen> {
                               ),
                             );
                             print('${_newReport.imagePath}');
-                            // print('Camera features not yet implemented');
+                            setState(() {});
                           },
                           child: Container(
                             margin: EdgeInsets.all(20),
@@ -101,7 +106,15 @@ class _AddScreenState extends State<AddScreen> {
                     SizedBox(
                       height: 20.0,
                     ),
+                    // Show image taken with camera
+                    _showCamImage(),
+                    SizedBox(
+                      height: 20.0,
+                    ),
                     TextField(
+                      onChanged: (textValue) {
+                        _title = textValue;
+                      },
                       decoration: InputDecoration(
                         labelText: 'Title',
                         enabledBorder: OutlineInputBorder(
@@ -122,8 +135,11 @@ class _AddScreenState extends State<AddScreen> {
                       height: 20.0,
                     ),
                     TextField(
+                      onChanged: (textValue) {
+                        _locationCategory = textValue;
+                      },
                       decoration: InputDecoration(
-                        labelText: 'Location',
+                        labelText: 'e.g. park, beach, etc',
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: Styles.primaryColorContrast,
@@ -140,23 +156,6 @@ class _AddScreenState extends State<AddScreen> {
                     ),
                     SizedBox(
                       height: 20.0,
-                    ),
-                    TextField(
-                      decoration: InputDecoration(
-                        labelText: 'Karma',
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Styles.primaryColorContrast,
-                            width: 3.0,
-                          ),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Styles.primaryColor,
-                            width: 5.0,
-                          ),
-                        ),
-                      ),
                     ),
                     SizedBox(
                       height: 20.0,
@@ -164,7 +163,12 @@ class _AddScreenState extends State<AddScreen> {
                     ButtonTheme(
                       minWidth: 200.0,
                       height: 50.0,
-                      child: RetroButton(title: 'Report', onPressed: null),
+                      child: RetroButton(
+                        title: 'Report',
+                        onPressed: () {
+                          // TODO: report submit.
+                        },
+                      ),
                     ),
                   ],
                 ),
@@ -173,6 +177,18 @@ class _AddScreenState extends State<AddScreen> {
           ),
         ),
       ),
+    );
+  }
+
+  Widget _showCamImage() {
+    if (_newReport.imagePath != null) {
+      return Image.asset(
+        _newReport.imagePath,
+        height: 100.0,
+      );
+    }
+    return SizedBox(
+      height: 1.0,
     );
   }
 }
