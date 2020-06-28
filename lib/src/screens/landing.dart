@@ -18,6 +18,7 @@ class _LandingScreenState extends State<LandingScreen> {
     const buttonHeightFactor = 0.6;
 
     return Scaffold(
+      backgroundColor: Color.fromRGBO(240, 233, 217, 1.0),
       body: Stack(children: <Widget>[
         SizedBox(
             height: MediaQuery.of(context).size.height,
