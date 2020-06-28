@@ -11,7 +11,7 @@ class MockData {
     Report(
       id: "r-000",
       title: "Bournemouth Beach",
-      imagePath: 'assets/beach',
+      imagePath: 'assets/beach.jpg',
       position: LatLng(50.7138, 1.8745),
       karma: 800,
       minsPassed: 15,
