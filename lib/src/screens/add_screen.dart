@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:camera/camera.dart';
 import 'package:orion_flutterhack20/src/styles.dart';
 import 'package:orion_flutterhack20/src/widgets/retro_button.dart';
 
+import 'camera_app.dart';
+
 class AddScreen extends StatefulWidget {
   static const String id = '/add_screen';
+  AddScreen({@required this.rearCam});
+
+  final CameraDescription rearCam;
+
   @override
   _AddScreenState createState() => _AddScreenState();
 }
@@ -50,7 +57,14 @@ class _AddScreenState extends State<AddScreen> {
                         GestureDetector(
                           onTap: () {
                             // TODO: Open camera.
-                            print('Camera features not yet implemented');
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    CameraApp(camera: widget.rearCam),
+                              ),
+                            );
+                            // print('Camera features not yet implemented');
                           },
                           child: Container(
                             margin: EdgeInsets.all(20),
