@@ -29,8 +29,6 @@
 
 <img src="https://github.com/samisnotinsane/orion_flutterhack20/raw/master/screenshots/Simulator-Screen-Shot-Profile.png" alt="Profile" width=230 height=500>
 
-![Profile](?raw=true "")
-
 ## Table of contents
 
 - [Quick start](#quick-start)
