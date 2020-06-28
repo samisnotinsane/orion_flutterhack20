@@ -14,9 +14,10 @@ import '../mock_data.dart';
 
 class AddScreen extends StatefulWidget {
   static const String id = '/add_screen';
-  AddScreen({@required this.rearCam});
+  AddScreen({@required this.rearCam, @required this.saveReport});
 
   final CameraDescription rearCam;
+  final Function saveReport;
 
   @override
   _AddScreenState createState() => _AddScreenState();
@@ -171,7 +172,7 @@ class _AddScreenState extends State<AddScreen> {
                         onPressed: () async {
                           // TODO: report submit.
                           _newReport.title = _title;
-                          _newReport.details = 'Dynamic report';
+                          _newReport.details = _locationCategory;
 
                           Position pos = await getLocationData();
                           LatLng latLng = LatLng(pos.latitude, pos.longitude);
@@ -182,8 +183,8 @@ class _AddScreenState extends State<AddScreen> {
                           // every new report has karma: 50
                           // Add to mockdata card pile
                           data.addReportToTop(_newReport);
-                          setState(() {});
-                          Navigator.pop(context);
+
+                          widget.saveReport();
                         },
                       ),
                     ),

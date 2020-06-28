@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:orion_flutterhack20/src/widgets/retro_button.dart';
 
@@ -18,11 +20,12 @@ class ReportCard extends StatelessWidget {
             flex: 2,
             child: ClipRect(
               child: Align(
-                alignment: Alignment.center,
-                heightFactor: 1.0,
-                widthFactor: 0.75,
-                child: Image.asset(report.imagePath),
-              ),
+                  alignment: Alignment.center,
+                  heightFactor: 1.0,
+                  widthFactor: 0.75,
+                  child: report.imagePath.contains('assets')
+                      ? Image.asset(report.imagePath)
+                      : Image.file(File(report.imagePath))),
             ),
           ),
           Expanded(

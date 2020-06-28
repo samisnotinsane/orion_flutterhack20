@@ -27,9 +27,13 @@ class _HomeState extends State<Home> {
     super.initState();
     _tabs = [
       MapScreen(devicePosition: widget.devicePosition),
-      AddScreen(rearCam: widget.rearCam),
+      AddScreen(rearCam: widget.rearCam, saveReport: () => saveReport()),
       Text("woah")
     ];
+  }
+
+  void saveReport() {
+    _onItemTapped(0);
   }
 
   void _onItemTapped(int index) {
