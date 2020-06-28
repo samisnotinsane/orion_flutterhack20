@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://flutter.io/">
-    <img src="https://github.com/Podster-GB/podster_flutter/blob/dev/assets/images/podster-logo.png" alt="Logo" width=72 height=72>
+    <img src="https://flutter.dev/images/catalog-widget-placeholder.png" alt="Flutter Logo" width=72 height=72>
   </a>
 
   <h3 align="center">Tidy</h3>
