@@ -12,8 +12,8 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: 'Tidy',
       theme: ThemeData(
-        primaryColor: Styles.primaryColor,
-        accentColor: Colors.amberAccent,
+        primaryColor: Styles.primaryColorAlt,
+        accentColor: Styles.primaryColor,
       ),
       initialRoute: LandingScreen.id,
       routes: {

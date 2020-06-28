@@ -7,6 +7,7 @@ class Report {
   String imagePath;
   LatLng position;
   int karma;
+  int minsPassed;
 
   Report({
     this.id,
@@ -15,5 +16,6 @@ class Report {
     this.imagePath,
     this.position,
     this.karma,
+    this.minsPassed,
   });
 }

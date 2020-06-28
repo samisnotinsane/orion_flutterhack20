@@ -3,7 +3,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:geolocator/geolocator.dart';
 
 import '../styles.dart';
-import 'map_screen.dart';
+import 'home.dart';
 
 class LoadingScreen extends StatefulWidget {
   static const String id = '/loading_screen';
@@ -26,7 +26,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => MapScreen(
+          builder: (context) => Home(
             devicePosition: position,
           ),
         ),
