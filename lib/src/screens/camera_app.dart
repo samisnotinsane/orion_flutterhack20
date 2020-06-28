@@ -9,7 +9,7 @@ import 'package:path_provider/path_provider.dart';
 
 class CameraApp extends StatefulWidget {
   static const String id = '/camera_screen';
-  CameraApp({@required this.camera, @required this.report});
+  CameraApp({@required this.camera, this.report});
 
   final CameraDescription camera;
   final Report report;

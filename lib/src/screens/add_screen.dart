@@ -170,7 +170,6 @@ class _AddScreenState extends State<AddScreen> {
                       child: RetroButton(
                         title: 'Report',
                         onPressed: () async {
-                          // TODO: report submit.
                           _newReport.title = _title;
                           _newReport.details = _locationCategory;
 
@@ -179,6 +178,7 @@ class _AddScreenState extends State<AddScreen> {
                           print('Creating new report in position $latLng');
 
                           _newReport.position = latLng;
+                          _newReport.minsPassed = 0;
 
                           // every new report has karma: 50
                           // Add to mockdata card pile
