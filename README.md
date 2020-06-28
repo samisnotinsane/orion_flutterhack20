@@ -21,8 +21,11 @@
 </p>
 
 ## Screenshots
-![Landing screen](/relative/path/to/img.jpg?raw=true "Optional Title")
-
+![Landing screen](screenshots/Simulator-Screen-Shot-Landing.png?raw=true "Landing screen")
+![Home](screenshots/Simulator-Screen-Shot-Home.png?raw=true "Home")
+![Report mess](screenshots/Simulator-Screen-Shot-Add-Mess.png?raw=true "Report mess")
+![Redeem](screenshots/Simulator-Screen-Shot-Redeem.png?raw=true "Redeem")
+![Profile](screenshots/Simulator-Screen-Shot-Add-Mess.png?raw=true "Profile")
 
 ## Table of contents
 
