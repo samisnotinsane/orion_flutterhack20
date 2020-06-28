@@ -1,5 +1,8 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
+import 'package:orion_flutterhack20/src/models/report.dart';
 import 'package:orion_flutterhack20/src/styles.dart';
 import 'package:orion_flutterhack20/src/widgets/retro_button.dart';
 
@@ -16,6 +19,15 @@ class AddScreen extends StatefulWidget {
 }
 
 class _AddScreenState extends State<AddScreen> {
+  Report _newReport;
+
+  @override
+  void initState() {
+    super.initState();
+    var rnd = new Random();
+    _newReport = Report(id: 'r-${rnd.nextInt(1000)}');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,10 +72,13 @@ class _AddScreenState extends State<AddScreen> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) =>
-                                    CameraApp(camera: widget.rearCam),
+                                builder: (context) => CameraApp(
+                                  camera: widget.rearCam,
+                                  report: _newReport,
+                                ),
                               ),
                             );
+                            print('${_newReport.imagePath}');
                             // print('Camera features not yet implemented');
                           },
                           child: Container(

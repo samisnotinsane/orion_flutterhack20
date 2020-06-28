@@ -3,14 +3,16 @@ import 'dart:io';
 
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:orion_flutterhack20/src/models/report.dart';
 import 'package:path/path.dart' show join;
 import 'package:path_provider/path_provider.dart';
 
 class CameraApp extends StatefulWidget {
   static const String id = '/camera_screen';
-  CameraApp({@required this.camera});
+  CameraApp({@required this.camera, @required this.report});
 
   final CameraDescription camera;
+  final Report report;
 
   @override
   _CameraAppState createState() => _CameraAppState();
@@ -86,13 +88,16 @@ class _CameraAppState extends State<CameraApp> {
             // Attempt to take a picture and log where it's been saved.
             await _controller.takePicture(path);
 
+            widget.report.imagePath = path;
+
+            Navigator.pop(context);
             // If the picture was taken, display it on a new screen.
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => DisplayPictureScreen(imagePath: path),
-              ),
-            );
+            // Navigator.push(
+            //   context,
+            //   MaterialPageRoute(
+            //     builder: (context) => DisplayPictureScreen(imagePath: path),
+            //   ),
+            // );
           } catch (e) {
             // If an error occurs, log the error to the console.
             print(e);
