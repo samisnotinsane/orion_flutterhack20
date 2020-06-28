@@ -1,7 +1,5 @@
 <p align="center">
-  <a href="https://flutter.io/">
-    <img src="https://flutter.dev/images/flutter-logo-sharing.png" alt="Flutter Logo" width=200 height=120>
-  </a>
+    <img src="https://github.com/samisnotinsane/orion_flutterhack20/raw/master/screenshots/Simulator-Screen-Shot-Landing.png" alt="Tidy Logo" width=200 height=120>
 
   <h3 align="center">Tidy</h3>
 
