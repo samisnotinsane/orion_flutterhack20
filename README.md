@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://github.com/samisnotinsane/orion_flutterhack20/raw/master/screenshots/Simulator-Screen-Shot-Landing.png" alt="Tidy Logo" width=200 height=120>
+    <img src="https://github.com/samisnotinsane/orion_flutterhack20/raw/master/screenshots/Tidy-logo.png" alt="Tidy Logo" width=200 height=120>
 
   <h3 align="center">Tidy</h3>
 
