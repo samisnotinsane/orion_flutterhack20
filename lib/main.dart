@@ -16,11 +16,10 @@ class App extends StatelessWidget {
         primaryColor: Styles.primaryColorAlt,
         accentColor: Styles.primaryColor,
       ),
-      initialRoute: AddScreen.id,
+      initialRoute: LandingScreen.id,
       routes: {
         LandingScreen.id: (context) => LandingScreen(),
         LoadingScreen.id: (context) => LoadingScreen(),
-        AddScreen.id: (context) => AddScreen(),
       },
     );
   }
