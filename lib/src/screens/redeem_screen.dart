@@ -20,13 +20,13 @@ class RedeemScreen extends StatelessWidget {
                 child: Center(
                     child: Column(children: [
                   Text("Verified Cleaner", style: TextStyle(fontSize: 32)),
-                  Divider(height: 20, color: Styles.primaryColorAlt),
+                  Container(height: 20),
                   Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                     Icon(Icons.verified_user,
                         size: 50, color: Colors.brown[300]),
                     Text("$currentKarma₭", style: TextStyle(fontSize: 32))
                   ]),
-                  Divider(height: 20, color: Styles.primaryColorAlt),
+                  Container(height: 20),
                   Container(
                       width: MediaQuery.of(context).size.width * 0.7,
                       child: LinearPercentIndicator(
@@ -36,7 +36,7 @@ class RedeemScreen extends StatelessWidget {
                         progressColor: Colors.lime,
                         center: Text("150 / 200"),
                       )),
-                  Divider(height: 10, color: Styles.primaryColorAlt),
+                  Container(height: 10),
                   Text("Next Badge: Super Cleaner")
                 ])))),
         Positioned(

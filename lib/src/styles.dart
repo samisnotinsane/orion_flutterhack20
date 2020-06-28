@@ -24,4 +24,14 @@ abstract class Styles {
     fontSize: 16.0,
     fontWeight: FontWeight.bold,
   );
+  static const TextStyle retroTitle = TextStyle(
+    fontSize: 26.0,
+    fontWeight: FontWeight.bold,
+    color: primaryColorContrast,
+  );
+  static const TextStyle retroSubTitle = TextStyle(
+    fontSize: 20.0,
+    fontWeight: FontWeight.bold,
+    color: primaryColorContrast,
+  );
 }
