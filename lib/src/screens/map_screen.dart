@@ -5,6 +5,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:orion_flutterhack20/src/models/report.dart';
+import 'package:orion_flutterhack20/src/widgets/retro_button.dart';
 import '../widgets/report_card.dart';
 import '../widgets/user_status.dart';
 
@@ -98,6 +99,23 @@ class _MapScreenState extends State<MapScreen> {
               padding: EdgeInsets.only(right: 10.0),
               alignment: Alignment.topRight,
               child: UserStatus(),
+            ),
+          ),
+          Positioned(
+            left: 10.0,
+            right: 10.0,
+            top: MediaQuery.of(context).size.height * 0.12,
+            bottom: MediaQuery.of(context).size.height * 0.83,
+            child: ListView.separated(
+              itemCount: 10,
+              separatorBuilder: (context, index) => SizedBox(width: 5.0),
+              itemBuilder: (context, index) {
+                return RetroButton(
+                  onPressed: () {},
+                  title: '$index',
+                );
+              },
+              scrollDirection: Axis.horizontal,
             ),
           ),
         ],
