@@ -21,7 +21,7 @@ class MapScreen extends StatefulWidget {
 }
 
 class _MapScreenState extends State<MapScreen> {
-  List<Report> _reports = MockData().reports;
+  List<Report> _reports = data.reports;
   String _mapStyle;
   GoogleMapController _mapController;
   Set<Marker> _markers = HashSet<Marker>();

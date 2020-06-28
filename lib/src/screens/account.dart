@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:orion_flutterhack20/src/mock_data.dart';
 import 'package:orion_flutterhack20/src/models/report.dart';
 import 'package:orion_flutterhack20/src/models/users.dart';
@@ -11,19 +10,11 @@ import 'package:orion_flutterhack20/src/widgets/report_card.dart';
 class Account extends StatelessWidget {
   final Users user;
   Account({this.user});
-  List<Report> _reports = MockData().reports;
 
-  // Report report1 = Report(
-  //   id: "r-001",
-  //   title: "Hyde Park",
-  //   details: "woa woah",
-  //   imagePath: 'assets/hyde-park.jpg',
-  //   position: LatLng(51.5078085, -0.1685757),
-  //   karma: 500,
-  //   minsPassed: 21,
-  // );
   @override
   Widget build(BuildContext context) {
+    List<Report> _reports = MockData().reports;
+
     return Scaffold(
       backgroundColor: Styles.primaryColorAlt,
       body: Center(

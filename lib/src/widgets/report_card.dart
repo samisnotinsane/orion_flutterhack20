@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:orion_flutterhack20/src/widgets/retro_button.dart';
 
@@ -17,7 +19,9 @@ class ReportCard extends StatelessWidget {
             flex: 2,
             child: AspectRatio(
               aspectRatio:3/2,
-              child: Image.asset(report.imagePath, fit: BoxFit.fill)),
+              child: report.imagePath.contains('assets')
+                      ? Image.asset(report.imagePath, fit: BoxFit.fill,)
+                      : Image.file(File(report.imagePath, ), fit: BoxFit.fill,))
           ),
           Expanded(
             child: Padding(
