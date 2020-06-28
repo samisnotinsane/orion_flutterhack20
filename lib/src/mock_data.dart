@@ -48,7 +48,8 @@ class MockData {
   List<Partner> _partners = [
     Partner(id: "p-001", name: "McDonald's", details: "FREE NUGGIES"),
     Partner(id: "p-002", name: "KFC", details: "FREE WINGS"),
-    Partner(id: "p-003", name: "Pizza Hut", details: "FREE SLICE")
+    Partner(id: "p-003", name: "Pizza Hut", details: "FREE SLICE"),
+    Partner(id: "p-004", name: "Tortilla", details: "FREE NACHOS")
   ];
 
   UnmodifiableListView<Report> get reports => UnmodifiableListView(_reports);

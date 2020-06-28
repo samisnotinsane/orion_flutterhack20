@@ -1,21 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:orion_flutterhack20/src/models/partner.dart';
 
-List<String> stuff = ["mcdonals", "kfc"];
+import '../mock_data.dart';
+import '../widgets/partner_list_tile.dart';
+import '../styles.dart';
 
 class RedeemScreen extends StatelessWidget {
+  final List<Partner> _partners = MockData().partners;
+
   Widget build(context) => Stack(children: [
         Container(
-            decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    begin: Alignment.topRight,
-                    end: Alignment.bottomLeft,
-                    stops: [0, 1],
-                    colors: [Color(0xffE474D5), Color(0xff79D8FA)]))),
+          color: Styles.primaryColorAlt,
+          // decoration: BoxDecoration(
+          //     gradient: LinearGradient(
+          //         begin: Alignment.topRight,
+          //         end: Alignment.bottomLeft,
+          //         stops: [0, 1],
+          //         colors: [Color(0xffE474D5), Color(0xff79D8FA)]))
+        ),
         Positioned(
             top: 100,
-            child: Center(
-                // padding: EdgeInsets.only(top: 50),
-                child: Column(children: [Text("hey")]))),
+            child: Container(
+                height: MediaQuery.of(context).size.height * 0.7 - 100,
+                width: MediaQuery.of(context).size.width,
+                child: Center(
+                    child: Column(children: [
+                  Text("2345 karma"),
+                  Divider(height: 50, color: Styles.primaryColorAlt),
+                  Text("12 doollar saved"),
+                  Divider(height: 50, color: Styles.primaryColorAlt),
+                  Text("???")
+                ])))),
         Positioned(
             bottom: 0,
             child: Container(
@@ -23,10 +38,9 @@ class RedeemScreen extends StatelessWidget {
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(color: Colors.white),
               child: ListView.builder(
-                  itemCount: stuff.length,
-                  itemBuilder: (context, index) {
-                    return ListTile(title: Text(stuff[index]));
-                  }),
+                  itemCount: _partners.length,
+                  itemBuilder: (context, index) =>
+                      PartnerListTile(partner: _partners[index])),
             ))
       ]);
 }
