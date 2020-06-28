@@ -42,6 +42,8 @@ class Account extends StatelessWidget {
                   child: info(user.userStatement),
                 ),
                 spacing(),
+                heading('Friends'),
+                SizedBox(height:20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -63,7 +65,8 @@ class Account extends StatelessWidget {
                     ),
                     
                   ],
-                )
+                ),
+              spacing(),
               ],
             ),
           ],
