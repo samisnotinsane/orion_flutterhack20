@@ -19,9 +19,13 @@ class ReportCard extends StatelessWidget {
             child: ClipRect(
               child: Align(
                 alignment: Alignment.center,
-                heightFactor: 1.0,
+                heightFactor: 1,
                 widthFactor: 0.75,
-                child: Image.asset(report.imagePath),
+                child: AspectRatio(
+                  aspectRatio: 3 / 2,
+                  child: Image.asset(
+                    report.imagePath,),
+                ),
               ),
             ),
           ),
