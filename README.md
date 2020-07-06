@@ -18,6 +18,21 @@
   </p>
 </p>
 
+## Usage
+Please note that you will need to generate your own Google Maps API key for iOS and/or Android and embed it in this project before using any map functionality. I've disabled my API key after the hackathon ended as it would otherwise incur costs.
+
+For iOS: Open `AppDelegate.swift` and edit the line
+````
+GMSServices.provideAPIKey("<YOUR-API-KEY-HERE>")
+````
+
+For Android: Open `AndroidManifest.xml` and edit the line
+````
+<meta-data android:name="com.google.android.geo.API_KEY" android:value="<YOUR-API-KEY-HERE>"/>
+````
+
+replacing the prompt `<YOUR-API-KEY-HERE>` with your actual API key string.
+
 ## Screenshots
 <img src="https://github.com/samisnotinsane/orion_flutterhack20/raw/master/screenshots/Simulator-Screen-Shot-Landing.png" alt="Landing screen" width=230 height=500>
 
